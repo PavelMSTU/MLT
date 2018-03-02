@@ -28,8 +28,9 @@ def convert(
     :param file_out:
     :return:
     """
+    json_header_path = file_in + '.json'
 
-    mt = MltTree(None)
+    mt = MltTree(json_header_path=json_header_path)
 
     with open(file_in, 'r') as fr:
         for line in fr:

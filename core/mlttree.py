@@ -6,6 +6,7 @@ mlttree
 
 Created by pavel on 02.03.18 14:10
 """
+import json
 import datetime
 from copy import deepcopy
 
@@ -47,9 +48,13 @@ FUNC_CHECKS = [
 
 class MltTree:
 
-    def __init__(self, default_header=DEFAULT_HEADER):
+    def __init__(self, json_header_path):
         self.stack = list()
         self.lines = list()
+
+        with open(json_header_path, 'r') as fr:
+            self.j_header = json.load(fr)
+
         self.header = deepcopy(DEFAULT_HEADER)
 
     def push(self, value):
@@ -79,10 +84,31 @@ class MltTree:
         for key, value, regexp in self.header:
             yield value
 
+    def make_title(self):
+        return """
+        \\title{\\vspace{-15mm}\\fontsize{24pt}{10pt}\\selectfont\\textbf{
+        """+self.j_header['title']+"""
+    }} % Article title
+    
+    \\author{
+        \\large
+        \\textsc{ """+self.j_header["author"]["name"]+""" }\\thanks{"""+self.j_header["author"]["post"]+"""}\\\\[2mm] % Your name
+        \\normalsize \\href{ """+self.j_header["author"]["organisation_site"]+"""  }{ """+self.j_header["author"]["organisation"]+""" } \\\\ % Your institution
+        \\normalsize \\href{mailto: """+self.j_header["author"]["email"]+""" }{"""+self.j_header["author"]["email"]+"""} % Your email address
+        \\vspace{-5mm}
+    }
+    \\date{}"""
+
     def enumerate_lines(self, end=""):
         for line in self.enumerate_header_lines():
             yield line+end
+
+        yield self.make_title()
+
         yield '\\begin{document}'
+
+        yield '\\maketitle'
+
         for line in self.lines:
             yield line+end
         yield '\\end{document}'
