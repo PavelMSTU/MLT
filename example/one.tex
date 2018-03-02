@@ -1,0 +1,46 @@
+\documentclass[twoside]{article}
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8 
+\usepackage[english, russian]{babel}  % Включаем пакет для поддержки русского языка  
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage{multicol} % Used for the two-column layout of the document
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+\usepackage{float} % Required for tables and figures in the multi-column environment - they need to be placed in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{hyperref} % For hyperlinks in the PDF
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{paralist} % Used for the compactitem environment which makes bullet points with less space between them
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the 'Abstract' text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{textcomp}
+\usetikzlibrary{shapes,arrows}
+\usepackage{amsmath} % для \begin{equation*} ... \end{equation*}
+\usepackage{bm} % для жирного математического выделения $m{...}$ = 	extbf{...}
+\usepackage{amssymb} % для \boxminus
+\usepackage{amsfonts} % Для команды \mathbb {NZQRC}
+\usepackage{longtable}
+\usepackage{wrapfig} % Обтикания
+\begin{document}
+\section{Пример}
+
+Определённый текст
+
+\section{Подглава}
+
+
+\section{Ещё подглава}
+
+
+Конец
+\end{document}

@@ -99,3 +99,13 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# pycharm
+.idea
+
+# LaTeX
+example/*.aux
+example/*.dvi
+example/*.log
+example/*.out
+example/*.ps
