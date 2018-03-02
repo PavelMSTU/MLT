@@ -7,6 +7,8 @@ TODO
 Created by pavel on 02.03.18 14:28
 """
 
+from settings import VERSION
+
 DEFAULT_HEADER = [
     ('documentclass', '\\documentclass[twoside]{article}', '\\documentclass[@1]{@2}'),
     ('inputenc', '\\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8 ', '\\usepackage[@1]{inputenc}'),
@@ -46,13 +48,18 @@ DEFAULT_HEADER = [
 assert len(set(x[0] for x in DEFAULT_HEADER if x[0] is not None)) == len([1 for x in DEFAULT_HEADER if x[0] is not None])
 
 
-# TODO
-"""
+DEFAULT_INIT_COMMENT = """
+MLT version {VERSION}
+Auto Build Latex document from Markdown *.mlt file
 
-\fancyhead[C]{
-Слипенчук Павел
-$\bullet$ на правах рукописи
-} % Custom header text
+See project https://github.com/PavelMSTU/MLT
+mail to programmer: pavelmstu@stego.su
 
-\fancyfoot[RO,LE]{\thepage} % Custom footer text
-"""
+LGPL Version 3 licence
+
+It is free!
+
+(@date@)
+""".format(
+    VERSION=VERSION,
+)

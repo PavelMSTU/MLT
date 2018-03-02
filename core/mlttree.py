@@ -10,7 +10,8 @@ import json
 import datetime
 from copy import deepcopy
 
-from core.default_header import DEFAULT_HEADER
+from core.defaults import DEFAULT_HEADER
+from core.defaults import DEFAULT_INIT_COMMENT
 
 __author__ = 'pavel'
 
@@ -100,6 +101,10 @@ class MltTree:
     \\date{}"""
 
     def enumerate_lines(self, end=""):
+
+        for line in DEFAULT_INIT_COMMENT.replace("@date@", str(datetime.datetime.now())).split('\n'):
+            yield '% {}{}'.format(line, end)
+
         for line in self.enumerate_header_lines():
             yield line+end
 
@@ -115,9 +120,8 @@ class MltTree:
 
     def save2file(self, path_out):
         with open(path_out, 'w') as fw:
-            for line in self.enumerate_lines():
+            for line in self.enumerate_lines(end='\n'):
                 fw.write(line)
-                fw.write('\n')
 
 
 if __name__ == u"__main__":
