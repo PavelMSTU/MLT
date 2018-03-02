@@ -5,3 +5,13 @@
 Скрывает под капотом сам LaTeX
 
 TODO !!!
+
+```bash
+$ latex -src one.tex
+$ dvipdf one.dvi
+```
+
+Получение PNG-шики:
+```bash
+$
+```

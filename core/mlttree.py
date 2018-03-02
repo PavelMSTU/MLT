@@ -23,6 +23,12 @@ def header(mt, line):
             return 'section'
         if len_ == 2:
             return 'subsection'
+        if len_ == 3:
+            return 'subsubsection'
+        if len_ == 4:
+            return 'paragraph'
+        if len_ == 5:
+            return 'subparagraph'
         raise NotImplementedError("Only ## and # can be use!")
 
     if line and line[0] == '#':
@@ -34,7 +40,7 @@ def header(mt, line):
         text = mt.pop()
         mt.add_text(text)
 
-        mt.add_text("\section{"+value+"}")
+        mt.add_text("\\"+environment(len(h))+"{"+value+"}")
         mt.push(None)
 
         return True
