@@ -109,3 +109,4 @@ example/*.dvi
 example/*.log
 example/*.out
 example/*.ps
+example/*.mlt.json

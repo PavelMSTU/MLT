@@ -1,0 +1,11 @@
+{
+    "title": "Title of paper \\ Заголовок статьи",
+    "author": {
+        "name": "Bob Putin (Боб Путин)",
+        "post": "MTL President (MTL президент)",
+        "email": "mtl@stego.su",
+        "organisation": "Institute of Information Steganography",
+        "organisation_site": "iis.stego.su"
+    },
+    "appearance": null
+}
